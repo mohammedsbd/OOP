@@ -1,6 +1,6 @@
-package model;
+package model.abstracts;
 
-import model.abstract.User;
+// import model.abstract.User;
 
 public class Customer extends User {
     private String email;

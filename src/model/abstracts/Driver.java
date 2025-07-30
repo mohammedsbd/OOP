@@ -1,6 +1,6 @@
-package model;
+package model.abstracts;
 
-import model.abstract.User;
+// import model.abstract.User;
 
 public class Driver extends User {
     private String licenseNumber;
