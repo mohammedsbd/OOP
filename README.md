@@ -1,58 +1,51 @@
-Java Cab Booking System
-A Java-based Cab Booking System implementing core object-oriented programming principles with a MySQL backend. The system allows customers to register, book rides, view drivers, and make payments. Drivers can be managed, and bookings tracked — all via a clean Command Line Interface (CLI).
+# Java Cab Booking System
 
-Features
-Customer Registration & Management
+A **Java-based Cab Booking System** implementing core object-oriented programming principles with a MySQL backend. The system allows customers to register, book rides, view drivers, and make payments. Drivers can be managed, and bookings tracked — all via a clean Command Line Interface (CLI).
 
-Driver Registration & Management
+---
 
-Booking System with pickup/drop locations
+## Features
 
-Payment Simulation with random fare generation
+- Customer Registration & Management  
+- Driver Registration & Management  
+- Booking System with pickup/drop locations  
+- Payment Simulation with random fare generation  
+- Booking Status Tracking (Pending, Confirmed, Cancelled)  
+- Driver Availability Management  
+- MySQL Database Integration for persistent storage  
+- Robust Exception Handling and validation  
+- Object-Oriented Design using Interfaces, Abstract Classes, and Polymorphism  
+- File I/O Logging for auditing actions  
 
-Booking Status Tracking (Pending, Confirmed, Cancelled)
+---
 
-Driver Availability Management
+## Technologies Used
 
-MySQL Database Integration for persistent storage
+- Java  
+- MySQL  
+- JDBC for database connectivity  
+- Command Line Interface (CLI)  
 
-Robust Exception Handling and validation
+---
 
-Object-Oriented Design using Interfaces, Abstract Classes, and Polymorphism
+## System Architecture
 
-File I/O Logging for auditing actions
-
-Technologies Used
-Java 
-
-MySQL 
-
-JDBC for database connectivity
-
-Command Line Interface (CLI)
-
-System Architecture
 The project follows a modular architecture with packages such as:
 
-model — Entity classes like Customer, Driver, Booking
+- `model` — Entity classes like Customer, Driver, Booking  
+- `dao` — Data Access Objects for database operations  
+- `service` — Business logic, including payment simulation  
+- `util` — Database connection utilities  
+- `ui` — User interface (CLI menu system)  
 
-dao — Data Access Objects for database operations
+---
 
-service — Business logic, including payment simulation
+## Database Setup
 
-util — Database connection utilities
-
-ui — User interface (CLI menu system)
-
-Database Setup
-Install MySQL server if not installed.
-
-Create a database named cbs2:
-
-sql
-Copy
-Edit
-CREATE DATABASE cbs2;
+1. Install MySQL server if not installed.  
+2. Create a database named `cbs2`:
+   ```sql
+   CREATE DATABASE cbs2;
 Create required tables (customers, drivers, bookings) with appropriate columns and types. Example:
 
 sql
@@ -105,7 +98,9 @@ Compile the project (if using command line):
 bash
 Copy
 Edit
-javac -d bin src/**/*.java (or go to the App.java class and run it)
+javac -d bin src/**/*.java
+Or open the project in your IDE and run App.java directly.
+
 Run the main application:
 
 bash
@@ -134,6 +129,9 @@ Admins add drivers with vehicle info and set their availability status.
 Booking:
 Customers create bookings by specifying pickup and drop locations. Available drivers are assigned.
 
+Payment:
+A random payment amount is generated and customers confirm or cancel the payment.
+
 Booking Confirmation:
 Upon payment success, booking status updates to "Confirmed". If payment is cancelled, the booking is cancelled.
 
@@ -156,6 +154,16 @@ App.java — Main class launching the application
 Future Enhancements
 GUI interface for better user experience
 
+Real payment gateway integration
+
+Driver rating system
+
+SMS/email notifications
+
+Cab type and fare calculation
+
+Admin panel with advanced reporting
+
 Contributing
 Contributions are welcome! Feel free to:
 
@@ -165,10 +173,12 @@ Suggest features
 
 Submit pull requests
 
+Please ensure your code follows existing style and includes proper documentation.
+
 License
 This project is licensed under the MIT License — see the LICENSE file for details.
 
 Contact
 Mohammed Salih
-Email:mohammedsbd
+Email: mohammedsbd@example.com
 GitHub: github.com/mohammedsbd
