@@ -1,56 +1,42 @@
 # Java Cab Booking System
 
-A **Java-based Cab Booking System** implementing core object-oriented programming principles with a MySQL backend. The system allows customers to register, book rides, view drivers, and make payments. Drivers can be managed, and bookings tracked — all via a clean Command Line Interface (CLI).
+## Project Overview
 
----
+The **Java Cab Booking System** is a console-based application designed to demonstrate core object-oriented programming principles using Java and MySQL. The system allows customers to register, book rides, and view available drivers through a clean Command Line Interface (CLI). Drivers can be managed, and bookings tracked efficiently with persistent storage in a MySQL database.
 
-## Features
+**Key Features:**
 
 - Customer Registration & Management  
 - Driver Registration & Management  
 - Booking System with pickup/drop locations  
-- Payment Simulation with random fare generation  
 - Booking Status Tracking (Pending, Confirmed, Cancelled)  
 - Driver Availability Management  
-- MySQL Database Integration for persistent storage  
+- MySQL Database Integration for persistence  
 - Robust Exception Handling and validation  
 - Object-Oriented Design using Interfaces, Abstract Classes, and Polymorphism  
 - File I/O Logging for auditing actions  
 
 ---
 
-## Technologies Used
+## Setup and Execution Instructions
 
-- Java  
-- MySQL  
-- JDBC for database connectivity  
-- Command Line Interface (CLI)  
+### Prerequisites
 
----
+- Java JDK 11 or higher  
+- MySQL server installed and running  
+- IDE or text editor (e.g., IntelliJ IDEA, Eclipse, VSCode)  
+- Basic knowledge of command line operations  
 
-## System Architecture
+### Database Setup
 
-The project follows a modular architecture with packages such as:
+1. Install MySQL server if you haven't already.  
+2. Create the database and tables by running the following SQL commands:
 
-- `model` — Entity classes like Customer, Driver, Booking  
-- `dao` — Data Access Objects for database operations  
-- `service` — Business logic, including payment simulation  
-- `util` — Database connection utilities  
-- `ui` — User interface (CLI menu system)  
+```sql
+CREATE DATABASE cbs2;
 
----
+USE cbs2;
 
-## Database Setup
-
-1. Install MySQL server if not installed.  
-2. Create a database named `cbs2`:
-   ```sql
-   CREATE DATABASE cbs2;
-Create required tables (customers, drivers, bookings) with appropriate columns and types. Example:
-
-sql
-Copy
-Edit
 CREATE TABLE customers (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100),
@@ -75,15 +61,7 @@ CREATE TABLE bookings (
     FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
     FOREIGN KEY (driver_id) REFERENCES drivers(driver_id)
 );
-Update your DBConnection class with your MySQL credentials.
-
-Getting Started
-Prerequisites
-Java JDK 11 or higher installed
-
-MySQL server running with your database setup
-
-IDE or text editor (IntelliJ IDEA, Eclipse, VSCode, etc.)
+Update the DBConnection class in the util package with your MySQL username and password.
 
 Running the Project
 Clone the repository:
@@ -93,87 +71,37 @@ Copy
 Edit
 git clone https://github.com/yourusername/java-cab-booking-system.git
 cd java-cab-booking-system
-Compile the project (if using command line):
+Compile the project:
 
 bash
 Copy
 Edit
 javac -d bin src/**/*.java
-Or open the project in your IDE and run App.java directly.
-
-Run the main application:
+Run the application:
 
 bash
 Copy
 Edit
 java -cp bin App
-Use the CLI menu to navigate through options:
+Use the CLI menu to:
 
-Register as customer
+Register customers
 
 Add drivers
 
-Book a cab
+Book rides
 
-Make payment
+View bookings, customers, and drivers
 
-View all bookings, drivers, customers
+Team Contributions
+This project was collaboratively developed by five team members, each focusing on key components:
 
-How the System Works (Step-by-step)
-Customer Registration:
-Customers enter their name and phone number to register.
-
-Driver Management:
-Admins add drivers with vehicle info and set their availability status.
-
-Booking:
-Customers create bookings by specifying pickup and drop locations. Available drivers are assigned.
-
-Payment:
-A random payment amount is generated and customers confirm or cancel the payment.
-
-Booking Confirmation:
-Upon payment success, booking status updates to "Confirmed". If payment is cancelled, the booking is cancelled.
-
-Tracking & Viewing:
-Users can view lists of customers, drivers, and bookings with their statuses.
-
-Code Structure
-model/ — Entity classes (Customer, Driver, Booking)
-
-dao/ — Database interaction classes (CustomerDAO, DriverDAO, BookingDAO)
-
-service/ — Business logic (PaymentService)
-
-util/ — Database connection (DBConnection)
-
-ui/ — CLI menus and user interaction handlers
-
-App.java — Main class launching the application
-
-Future Enhancements
-GUI interface for better user experience
-
-Real payment gateway integration
-
-Driver rating system
-
-SMS/email notifications
-
-Cab type and fare calculation
-
-Admin panel with advanced reporting
-
-Contributing
-Contributions are welcome! Feel free to:
-
-Report bugs
-
-Suggest features
-
-Submit pull requests
-
-Please ensure your code follows existing style and includes proper documentation.
+Team Member	Contribution Area
+Mohammed	Database design, DAO implementations
+Segni	Business logic and service layer
+Nahom	User Interface (CLI) and menu navigation
+Aaron	Exception handling, logging, and utility classes
+Daniel	Integration, testing, and overall project setup
 
 License
 This project is licensed under the MIT License — see the LICENSE file for details.
